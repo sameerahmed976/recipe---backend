@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const dbConnect = require("./config/db.js");
 const { errorHandler, notFound } = require("./middlewares/errorHandler.js");
 const userRouter = require("./routes/routes.js");
+const recipeRouter = require("./routes/recipesRoute.js");
 const cookieParser = require("cookie-parser");
 dotenv.config({});
 const PORT = process.env.PORT || 8000;
@@ -30,6 +31,8 @@ app.use(
 );
 app.use(cookieParser());
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1", recipeRouter);
+
 app.get("/", (req, res) => {
   // console.log(req.cookies.jwt);
 
