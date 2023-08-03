@@ -10,7 +10,7 @@
       "200 ml double cream"
     ],
     "category": "American",
-    "image": "crab-cakes.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066667/faemuz99psjrhd006qpa.jpg"
   },
   {
     "name": "Thai-style mussels",
@@ -24,7 +24,7 @@
       "½ a bunch of fresh coriander"
     ],
     "category": "Thai",
-    "image": "thai-style-mussels.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066679/muc16haapb0wlbuuup5j.jpg"
   },
   {
     "name": "Thai-style mussels",
@@ -38,7 +38,7 @@
       "1 fresh red chilli"
     ],
     "category": "Thai",
-    "image": "thai-inspired-vegetable-broth.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066677/wvvjtyfa67tspz09vf7b.jpg"
   },
   {
     "name": "Thai-Chinese-inspired pinch salad",
@@ -52,7 +52,7 @@
       "1 pinch Chinese five-spice powder"
     ],
     "category": "Chinese",
-    "image": "thai-chinese-inspired-pinch-salad.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066674/nfffmmqgrwirlsrbjxhq.jpg"
   },
   {
     "name": "Southern fried chicken",
@@ -69,7 +69,7 @@
       "1 level teaspoon hot smoked paprika"
     ],
     "category": "American",
-    "image": "southern-friend-chicken.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066670/kignkgt1f30c1f8broxb.jpg"
   },
   {
     "name": "Chocolate & banoffee whoopie pies",
@@ -86,7 +86,7 @@
       "olive oil"
     ],
     "category": "American",
-    "image": "chocolate-banoffe-whoopie-pies.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066666/fmliqgdylujl7kyjyoeg.jpg"
   },
   {
     "name": "Veggie pad Thai",
@@ -100,7 +100,7 @@
       "low-salt soy sauce"
     ],
     "category": "Thai",
-    "image": "veggie-pad-thai.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066681/v8cfeqa4yfhfu6v6y48s.jpg"
   },
   {
     "name": "Chinese steak & tofu stew",
@@ -114,7 +114,7 @@
       "1 bunch of spring onions"
     ],
     "category": "Chinese",
-    "image": "chinese-steak-tofu-stew.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066665/jtuacvkkv6quu5ssg4fw.jpg"
   },
   {
     "name": "Spring rolls",
@@ -128,7 +128,7 @@
       "3 spring onions"
     ],
     "category": "Chinese",
-    "image": "spring-rolls.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066671/msp3pskqsapiy4veq8v9.jpg"
   },
   {
     "name": "Tom Daley's sweet & sour chicken",
@@ -143,7 +143,7 @@
       "2 x 120 g free-range chicken breasts , skin on"
     ],
     "category": "Chinese",
-    "image": "tom-daley.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066680/zvzfqperks5hucb8vqoz.jpg"
   },
   {
     "name": "Crab cakes",
@@ -160,7 +160,7 @@
       "olive oil"
     ],
     "category": "American",
-    "image": "crab-cakes.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066667/faemuz99psjrhd006qpa.jpg"
   },
   {
     "name": "Thai red chicken soup",
@@ -172,7 +172,7 @@
       "1 bunch of fresh coriander (30g)"
     ],
     "category": "Thai",
-    "image": "thai-red-chicken-soup.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066678/mt0aqy8jhb6jfmqvv3st.jpg"
   },
   {
     "name": "Key lime pie",
@@ -185,7 +185,7 @@
       "200 ml double cream"
     ],
     "category": "American",
-    "image": "key-lime-pie.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066669/u5uuwxfccubpm8stctlz.jpg"
   },
   {
     "name": "Grilled lobster rolls",
@@ -199,7 +199,7 @@
       "2 tablespoons mayonnaise , made using free-range eggs"
     ],
     "category": "American",
-    "image": "grilled-lobster-rolls.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066668/fu0dxq1xeahu22dsdkxs.jpg"
   },
   {
     "name": "Thai green curry",
@@ -213,7 +213,7 @@
       "Brussels sprouts, Brussels tops, kale, cabbage, broccoli"
     ],
     "category": "Thai",
-    "image": "thai-green-curry.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066676/o2qmb1qtwbze7udxpnbf.jpg"
   },
   {
     "name": "Stir-fried vegetables",
@@ -228,7 +228,7 @@
       "a few shiitake mushrooms"
     ],
     "category": "Chinese",
-    "image": "stir-fried-vegetables.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066672/dymxzxwqznptdzcpeuyu.jpg"
   },
   {
     "name": "New Chocolate Cake",
@@ -236,6 +236,6 @@
     "email": "hello@email.com",
     "ingredients": ["Water"],
     "category": "Mexican",
-    "image": "chinese-steak-tofu-stew.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691066665/jtuacvkkv6quu5ssg4fw.jpg"
   }
 ]

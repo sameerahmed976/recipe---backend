@@ -1,26 +1,26 @@
 [
   {
     "name": "American",
-    "image": "american-food.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691069306/kex82p2xwojpfphhjyec.jpg"
   },
   {
     "name": "Chinese",
-    "image": "chinese-food.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691069307/uzba2fv7ds89tpfjg77u.jpg"
   },
   {
     "name": "Thai",
-    "image": "thai-food.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691069308/ivzvgqjxcpgwooby3agv.jpg"
   },
   {
     "name": "Mexican",
-    "image": "mexican-food.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691069309/xwdaxf4wcwthapltm2rl.jpg"
   },
   {
     "name": "Indian",
-    "image": "indian-food.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691069310/taoeklgllgofaj7uxmza.jpg"
   },
   {
     "name": "Spanish",
-    "image": "spanish-food.jpg"
+    "image": "https://res.cloudinary.com/duud2dkgv/image/upload/v1691069310/qzeeewgkpty4ndi49oas.jpg"
   }
 ]

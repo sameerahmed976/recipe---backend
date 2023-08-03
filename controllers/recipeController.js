@@ -28,6 +28,31 @@ const getAllRecipes = asyncHandler(async (req, res) => {
   });
 });
 
+// @desc get all recipes
+// @route  GET  /api/v1/allRecipes
+// @access Public
+
+const getProductId = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  console.log(`* ~ file: recipeController.js:37 ~ getProductId ~ id:`, id);
+
+  const product = await Recipe.findById(id);
+  console.log(
+    `* ~ file: recipeController.js:39 ~ getProductId ~ product:`,
+    product
+  );
+
+  if (!product) {
+    res.status(400);
+    throw new Error(" no product found");
+  }
+
+  res.status(200).json({
+    product,
+  });
+});
+
 exports.recipeController = {
   getAllRecipes,
+  getProductId,
 };
