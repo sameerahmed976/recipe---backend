@@ -10,6 +10,10 @@ const recipeSchema = new mongoose.Schema(
       type: String,
       required: "This field is required  description",
     },
+    source: {
+      type: String,
+      required: "This field is required  source",
+    },
     email: {
       type: String,
       required: "This field is required email",

@@ -35,6 +35,8 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
+app.use(fileUpload({ useTempFiles: true }));
+
 app.use(morgan("dev"));
 app.use(cors(corsOptions));
 dbConnect();
@@ -45,7 +47,7 @@ app.use(
   })
 );
 app.use(cookieParser());
-app.use(fileUpload({ useTempFiles: true }));
+
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/recipes", recipeRouter);
 

@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const Category = require("./models/categoryModel.js");
 const Recipe = require("./models/recipeModel.js");
-const category = require("./data/categories.json");
-const recipe = require("./data/recipes.json");
+const recipe = require("./public/recipes.json");
 dotenv.config({});
 // console.log(`* ~ file: updateDB.js:5 ~ category:`, category);
 // const recipe = require("./data/recipes.json");
@@ -14,10 +12,8 @@ const updateDB = async () => {
     const connect = await mongoose.connect(process.env.MONGO_URI);
     console.log(`database connected at the port ${connect.connection.host}`);
 
-    await Category.insertMany(category);
-    await Recipe.insertMany(recipe);
+    // await Recipe.insertMany(recipe);
 
-    // await Category.deleteMany();
     // await Recipe.deleteMany();
 
     process.exit(0);
