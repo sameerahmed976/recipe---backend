@@ -12,10 +12,10 @@ const updateDB = async () => {
     const connect = await mongoose.connect(process.env.MONGO_URI);
     console.log(`database connected at the port ${connect.connection.host}`);
 
-    // await Recipe.insertMany(recipe);
+    await Recipe.insertMany(recipe);
 
     // await Recipe.deleteMany();
-
+    console.log("upload success");
     process.exit(0);
   } catch (error) {
     console.log(`* ~ file: updateDB.js:26 ~ updateDB ~ error:`, error);

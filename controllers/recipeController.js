@@ -1,6 +1,9 @@
 const asyncHandler = require("express-async-handler");
 const Recipe = require("../models/recipeModel.js");
 
+const cloudinary = require("cloudinary").v2;
+const fs = require("fs");
+
 // @desc get all recipes
 // @route  GET  /api/v1/allRecipes
 // @access Public
@@ -54,6 +57,37 @@ const getProductId = asyncHandler(async (req, res) => {
   });
 });
 
+// @desc post recipe image
+// @route  POST  /api/v1/allRecipes/upload
+// @access Private
+
+const uploadImage = asyncHandler(async (req, res) => {
+  console.log(req.files);
+
+  if (!req.files) {
+    throw new Error("No File Uploaded");
+  }
+  const productImage = req.files.image;
+
+  if (!productImage.mimetype.startsWith("image")) {
+    throw new Error("Please Upload Image");
+  }
+
+  const maxSize = 1024 * 1024;
+
+  if (productImage.size > maxSize) {
+    throw new Error("Please upload image smaller than 1MB");
+  }
+
+  const result = await cloudinary.uploader.upload(productImage.tempFilePath, {
+    use_filename: true,
+    folder: "file-upload",
+  });
+
+  fs.unlinkSync(productImage.tempFilePath);
+  return res.status(200).json({ image: { src: result.secure_url } });
+});
+
 // @desc post recipe
 // @route  POST  /api/v1/allRecipes
 // @access Private
@@ -65,80 +99,37 @@ const getProductId = asyncHandler(async (req, res) => {
 // recipeImage: "C:\\fakepath\\view-all.jpg";
 // recipeName: "dsaddsadasdasdasdasdasd";
 const postARecipe = asyncHandler(async (req, res) => {
-  console.log(req.files);
-
-  const image = req.files;
-  console.log(`* ~ file: recipeController.js:73 ~ postARecipe ~ image:`, image);
-  if (!req.files) return res.send("Please upload an image");
-
-  // const cloudFile = await upload(image.tempFilePath);
-  console.log(cloudFile);
-
-  const {
-    email,
-    categories,
-    ingredients,
-    recipeDescription,
-    recipeImage,
-    recipeName,
-  } = req.body;
+  const { name, description, source, email, ingredients, category, image } =
+    req.body;
 
   if (
+    !name ||
+    !description ||
+    !source ||
     !email ||
-    !categories ||
     !ingredients ||
-    !recipeDescription ||
-    !recipeImage ||
-    !recipeName
+    !category ||
+    !image
   ) {
     res.status(400);
-    throw new Error(`Please input all fields`);
+
+    throw new Error("Please input all Fields");
   }
 
-  if (!req.files) {
-    throw new CustomError.BadRequestError("No File Uploaded");
-  }
-  const productImage = req.files.image;
+  const recipe = await Recipe.create(req.body);
 
-  if (!productImage.mimetype.startsWith("image")) {
-    throw new CustomError.BadRequestError("Please Upload Image");
+  if (!recipe) {
+    throw new Error("Please try again");
   }
 
-  const maxSize = 1024 * 1024;
-
-  if (productImage.size > maxSize) {
-    throw new CustomError.BadRequestError(
-      "Please upload image smaller than 1MB"
-    );
-  }
-
-  const imagePath = path.join(
-    __dirname,
-    "../public/uploads/" + `${productImage.name}`
-  );
-  await productImage.mv(imagePath);
-
-  const recipe = await Recipe.create({
-    name: recipeName,
-    description: recipeDescription,
-    source: recipeImage,
-    ingredients: ingredients,
-    category: categories,
-    image: recipeImage,
-    email: email,
-  });
-  console.log(
-    `* ~ file: recipeController.js:97 ~ postARecipe ~ recipe:`,
-    recipe
-  );
-
-  res.status(200).json({
-    recipe,
+  return res.status(200).json({
+    message: "success submitted the recipe",
   });
 });
 
 exports.recipeController = {
   getAllRecipes,
   getProductId,
+  uploadImage,
   postARecipe,
 };
