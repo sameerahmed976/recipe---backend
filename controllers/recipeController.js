@@ -116,11 +116,11 @@ const postARecipe = asyncHandler(async (req, res) => {
     throw new Error("Please Upload Image");
   }
 
-  // const maxSize =  1024 * 1024;
+  const maxSize = 1024 * 1024;
 
-  // if (productImage.size > maxSize) {
-  //   throw new Error("Please upload image smaller than 1MB");
-  // }
+  if (productImage.size > maxSize) {
+    throw new Error("Please upload image smaller than 1MB");
+  }
 
   const result = await cloudinary.uploader.upload(productImage.tempFilePath, {
     use_filename: true,
