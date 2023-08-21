@@ -61,32 +61,32 @@ const getProductId = asyncHandler(async (req, res) => {
 // @route  POST  /api/v1/allRecipes/upload
 // @access Private
 
-const uploadImage = asyncHandler(async (req, res) => {
-  console.log(req.files);
+// const uploadImage = asyncHandler(async (req, res) => {
+//   console.log(req.files);
 
-  if (!req.files) {
-    throw new Error("No File Uploaded");
-  }
-  const productImage = req.files.image;
+//   if (!req.files) {
+//     throw new Error("No File Uploaded");
+//   }
+//   const productImage = req.files.image;
 
-  if (!productImage.mimetype.startsWith("image")) {
-    throw new Error("Please Upload Image");
-  }
+//   if (!productImage.mimetype.startsWith("image")) {
+//     throw new Error("Please Upload Image");
+//   }
 
-  const maxSize = 1024 * 1024;
+//   const maxSize = 1024 * 1024;
 
-  if (productImage.size > maxSize) {
-    throw new Error("Please upload image smaller than 1MB");
-  }
+//   if (productImage.size > maxSize) {
+//     throw new Error("Please upload image smaller than 1MB");
+//   }
 
-  const result = await cloudinary.uploader.upload(productImage.tempFilePath, {
-    use_filename: true,
-    folder: "file-upload",
-  });
+//   const result = await cloudinary.uploader.upload(productImage.tempFilePath, {
+//     use_filename: true,
+//     folder: "file-upload",
+//   });
 
-  fs.unlinkSync(productImage.tempFilePath);
-  return res.status(200).json({ image: { src: result.secure_url } });
-});
+//   fs.unlinkSync(productImage.tempFilePath);
+//   return res.status(200).json({ image: { src: result.secure_url } });
+// });
 
 // @desc post recipe
 // @route  POST  /api/v1/allRecipes
@@ -99,24 +99,43 @@ const uploadImage = asyncHandler(async (req, res) => {
 // recipeImage: "C:\\fakepath\\view-all.jpg";
 // recipeName: "dsaddsadasdasdasdasdasd";
 const postARecipe = asyncHandler(async (req, res) => {
-  const { name, description, source, email, ingredients, category, image } =
-    req.body;
+  const { name, description, source, email, ingredients, category } = req.body;
 
-  if (
-    !name ||
-    !description ||
-    !source ||
-    !email ||
-    !ingredients ||
-    !category ||
-    !image
-  ) {
+  if (!name || !description || !source || !email || !ingredients || !category) {
     res.status(400);
 
     throw new Error("Please input all Fields");
   }
 
-  const recipe = await Recipe.create(req.body);
+  if (!req.files) {
+    throw new Error("No File Uploaded");
+  }
+  const productImage = req.files.image;
+
+  if (!productImage.mimetype.startsWith("image")) {
+    throw new Error("Please Upload Image");
+  }
+
+  // const maxSize =  1024 * 1024;
+
+  // if (productImage.size > maxSize) {
+  //   throw new Error("Please upload image smaller than 1MB");
+  // }
+
+  const result = await cloudinary.uploader.upload(productImage.tempFilePath, {
+    use_filename: true,
+    folder: "file-upload",
+  });
+  fs.unlinkSync(productImage.tempFilePath);
+  const recipe = await Recipe.create({
+    name,
+    description,
+    source: result.secure_url,
+    email,
+    ingredients,
+    category,
+    image: result.secure_url,
+  });
 
   if (!recipe) {
     throw new Error("Please try again");
@@ -130,6 +149,6 @@ const postARecipe = asyncHandler(async (req, res) => {
 exports.recipeController = {
   getAllRecipes,
   getProductId,
-  uploadImage,
+  // uploadImage,
   postARecipe,
 };

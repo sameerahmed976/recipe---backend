@@ -8,6 +8,6 @@ router
   .get(recipeController.getAllRecipes)
   .post(protect, recipeController.postARecipe);
 router.route("/:id").get(recipeController.getProductId);
-router.route("/upload").post(protect, recipeController.uploadImage);
+// router.route("/upload").post(recipeController.uploadImage);
 
 module.exports = router;
