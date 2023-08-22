@@ -59,7 +59,7 @@ app.get("/", (req, res) => {
 app.use(notFound);
 app.use(errorHandler);
 app.listen(PORT, () => {
-  console.log(
-    `server started at the port ${PORT} on http://localhost:${PORT}  `
-  );
+  // console.log(
+  //   `server started at the port ${PORT} on http://localhost:${PORT}  `
+  // );
 });

@@ -10,15 +10,15 @@ dotenv.config({});
 const updateDB = async () => {
   try {
     const connect = await mongoose.connect(process.env.MONGO_URI);
-    console.log(`database connected at the port ${connect.connection.host}`);
+    // console.log(`database connected at the port ${connect.connection.host}`);
 
     await Recipe.insertMany(recipe);
 
     // await Recipe.deleteMany();
-    console.log("upload success");
+    // console.log("upload success");
     process.exit(0);
   } catch (error) {
-    console.log(`* ~ file: updateDB.js:26 ~ updateDB ~ error:`, error);
+    // console.log(`* ~ file: updateDB.js:26 ~ updateDB ~ error:`, error);
     process.exit(1);
   }
 };
@@ -46,12 +46,12 @@ const uploadLocalImages = async () => {
 
     for (const image of Images) {
       const result = await cloudinary.uploader.upload(image);
-      console.log(result.secure_url);
+      // console.log(result.secure_url);
     }
 
     process.exit(0);
   } catch (error) {
-    console.log(`* ~ file: updateDB.js:60 ~ uploadLocalImages ~ error:`, error);
+    // console.log(`* ~ file: updateDB.js:60 ~ uploadLocalImages ~ error:`, error);
     process.exit(1);
   }
 };
