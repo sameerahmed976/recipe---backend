@@ -71,7 +71,7 @@ const logoutUser = asyncHandler(async (req, res) => {
   res.cookie("jwt", "", {
     httpOnly: true,
     maxAge: new Date(0),
-    sameSite: "Strict",
+    sameSite: "None",
     // Prevent CSRF attacks
     secure: process.env.NODE_ENV !== "development",
   });
